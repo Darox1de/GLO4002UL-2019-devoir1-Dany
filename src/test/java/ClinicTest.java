@@ -10,6 +10,7 @@ public class ClinicTest {
     public Clinic clinic2 = new Clinic(TriageType.FIFO, TriageType.FIFO);
     public Clinic clinic3 = new Clinic(TriageType.GRAVITY, TriageType.FIFO);
     public Clinic clinic4 = new Clinic(TriageType.GRAVITY, TriageType.GRAVITY);
+    public Clinic clinic5 = new Clinic(TriageType.GRAVITY, TriageType.GRAVITY);
 
     @Test
     public void clinicQueueInstanciation() {
@@ -23,18 +24,18 @@ public class ClinicTest {
     }
     @Test
     public void triagePatientGravityOver5firstInLine() {
-        clinic1.triagePatient("Bob", 1, VisibleSymptom.COLD);
+        clinic1.triagePatient("Bob", 2, VisibleSymptom.COLD);
         clinic1.triagePatient("Carl", 6, VisibleSymptom.COLD);
         Assertions.assertEquals("Carl", clinic1.doctorQueue.get(0));
     }
     @Test
     public void triagePatientBrokenBoneCase() {
-        clinic1.triagePatient("Bobby", 1, VisibleSymptom.BROKEN_BONE);
+        clinic1.triagePatient("Bobby", 2, VisibleSymptom.BROKEN_BONE);
         Assertions.assertEquals("Bobby", clinic1.radioQueue.get(0));
     }
     @Test
     public void triagePatientSprainCase() {
-        clinic1.triagePatient("Baba", 1, VisibleSymptom.SPRAIN);
+        clinic1.triagePatient("Baba", 2, VisibleSymptom.SPRAIN);
         Assertions.assertEquals("Baba", clinic1.radioQueue.get(0));
     }
     @Test
@@ -45,12 +46,12 @@ public class ClinicTest {
     @Test
     public void triagePatientFluCase() {
         clinic2.triagePatient("Lisa", 8, VisibleSymptom.SPRAIN);
-        clinic2.triagePatient("Bart", 1, VisibleSymptom.FLU);
+        clinic2.triagePatient("Bart", 2, VisibleSymptom.FLU);
         Assertions.assertEquals("Bart", clinic2.doctorQueue.get(1));
     }
     @Test
     public void triagePatientMigraineCase() {
-        clinic2.triagePatient("Marge", 1, VisibleSymptom.MIGRAINE);
+        clinic2.triagePatient("Marge", 2, VisibleSymptom.MIGRAINE);
         Assertions.assertEquals("Marge", clinic2.doctorQueue.getFirst());
     }
     @Test
@@ -68,4 +69,11 @@ public class ClinicTest {
         Assertions.assertEquals("Maggy", clinic4.radioQueue.get(1));
     }
     // 5 lignes de modifiées post step 3
+    @Test
+    public void triagePatientAbusSystem(){
+        clinic5.triagePatient("PATRICK", 1, VisibleSymptom.EBOLA);
+        clinic5.triagePatient("BOB", 1, VisibleSymptom.EBOLA);
+        clinic5.triagePatient("SQUIDWARD", 5, VisibleSymptom.EBOLA);
+        Assertions.assertEquals("SQUIDWARD", clinic5.doctorQueue.getFirst());
+    }
 }

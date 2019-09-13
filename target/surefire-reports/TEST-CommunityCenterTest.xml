@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="Classes.ClinicTest" time="0.162" tests="11" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="CommunityCenterTest" time="0.001" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -61,15 +61,9 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="triagePatientSprainGravityOver5Case" classname="Classes.ClinicTest" time="0.066"/>
-  <testcase name="triagePatientGravityOver5firstInLine" classname="Classes.ClinicTest" time="0"/>
-  <testcase name="triagePatientSprainCase" classname="Classes.ClinicTest" time="0.006"/>
-  <testcase name="triagePatientFluCase" classname="Classes.ClinicTest" time="0.001"/>
-  <testcase name="triagePatientMigraineCase" classname="Classes.ClinicTest" time="0.001"/>
-  <testcase name="clinicQueueTypes" classname="Classes.ClinicTest" time="0.002"/>
-  <testcase name="triagePatientBrokenBoneCase" classname="Classes.ClinicTest" time="0.014"/>
-  <testcase name="clinicQueueInstanciation" classname="Classes.ClinicTest" time="0"/>
-  <testcase name="triagePatientGravityQueueCase" classname="Classes.ClinicTest" time="0"/>
-  <testcase name="triagePatientGravityRadio" classname="Classes.ClinicTest" time="0"/>
-  <testcase name="triagePatientAbusSystem" classname="Classes.ClinicTest" time="0.005"/>
+  <testcase name="triagePatientGravityOver5firstInLine" classname="CommunityCenterTest" time="0"/>
+  <testcase name="triagePatientFIFOCase" classname="CommunityCenterTest" time="0"/>
+  <testcase name="clinicQueueTypes" classname="CommunityCenterTest" time="0"/>
+  <testcase name="communityCenterQueueInstanciation" classname="CommunityCenterTest" time="0"/>
+  <testcase name="triagePatientAbusSystem" classname="CommunityCenterTest" time="0"/>
 </testsuite>

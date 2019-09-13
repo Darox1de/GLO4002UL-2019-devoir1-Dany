@@ -16,6 +16,9 @@ public class Clinic {
     }
 
     public void triagePatient(String name, int gravity, VisibleSymptom visibleSymptom) {
+        if(gravity < 2){
+            return;
+        }
 
         if (gravity > 5 || doctorListType == TriageType.GRAVITY) {
             doctorQueue.add(0, name);
