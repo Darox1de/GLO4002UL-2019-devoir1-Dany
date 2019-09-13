@@ -17,24 +17,24 @@ public class Clinic {
 
     public void triagePatient(String name, int gravity, VisibleSymptom visibleSymptom) {
 
-        if (gravity > 5) {
+        if (gravity > 5 || doctorListType == TriageType.GRAVITY) {
             doctorQueue.add(0, name);
         }
-        if (visibleSymptom == visibleSymptom.BROKEN_BONE || visibleSymptom == visibleSymptom.SPRAIN) {
+        if (visibleSymptom == visibleSymptom.BROKEN_BONE || visibleSymptom == visibleSymptom.SPRAIN ) {
             radioQueue.add(name);
-            if (visibleSymptom == visibleSymptom.SPRAIN && gravity <= 5) {
+            if (visibleSymptom == visibleSymptom.SPRAIN) {
                 doctorQueue.add(0, name);
             }
             return;
         }
-        if (visibleSymptom == visibleSymptom.FLU) {
+        if (visibleSymptom == visibleSymptom.FLU && doctorListType != TriageType.GRAVITY ) {
             doctorQueue.add(1, name);
             return;
         }
-        if (visibleSymptom == visibleSymptom.MIGRAINE) {
+        if (visibleSymptom == visibleSymptom.MIGRAINE && gravity <= 5) {
             doctorQueue.add(0, name);
             return;
-        } else {
+        } else if(doctorListType != TriageType.GRAVITY) {
             doctorQueue.add(name);
             return;
         }

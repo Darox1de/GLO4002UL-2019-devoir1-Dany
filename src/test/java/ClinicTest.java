@@ -8,6 +8,7 @@ import java.util.*;
 public class ClinicTest {
     public Clinic clinic1 = new Clinic(TriageType.FIFO, TriageType.FIFO);
     public Clinic clinic2 = new Clinic(TriageType.FIFO, TriageType.FIFO);
+    public Clinic clinic3 = new Clinic(TriageType.GRAVITY, TriageType.FIFO);
 
 
     @Test
@@ -52,4 +53,14 @@ public class ClinicTest {
         clinic2.triagePatient("Marge", 1, VisibleSymptom.MIGRAINE);
         Assertions.assertEquals("Marge", clinic2.doctorQueue.getFirst());
     }
+    @Test
+    public void triagePatientGravityQueueCase() {
+        clinic2.triagePatient("Maggy", 9, VisibleSymptom.BROKEN_BONE);
+        clinic2.triagePatient("Moe", 9, VisibleSymptom.BROKEN_BONE);
+        Assertions.assertEquals("Moe", clinic2.doctorQueue.getFirst());
+        Assertions.assertEquals("Maggy", clinic2.doctorQueue.get(1));
+    }
+
+
+
 }

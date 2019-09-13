@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="Classes.ClinicTest" time="0.053" tests="8" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="Classes.ClinicTest" time="0.266" tests="9" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -18,7 +18,7 @@
     <property name="user.country" value="CA"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_201\jre\bin"/>
-    <property name="sun.java.command" value="C:\Users\ipodt\AppData\Local\Temp\surefire3083913699427283355\surefirebooter3830731027819072082.jar C:\Users\ipodt\AppData\Local\Temp\surefire3083913699427283355 2019-09-13T15-55-52_195-jvmRun1 surefire4599742847535288607tmp surefire_03279600814779888254tmp"/>
+    <property name="sun.java.command" value="C:\Users\ipodt\AppData\Local\Temp\surefire8178926251023329155\surefirebooter7902591358383201896.jar C:\Users\ipodt\AppData\Local\Temp\surefire8178926251023329155 2019-09-13T17-33-59_071-jvmRun1 surefire9013766172241263565tmp surefire_03306379779708856162tmp"/>
     <property name="surefire.test.class.path" value="D:\Backup 4 dec\Desktop\Université\Session Automne 2019\GLO-4002\Devoir 1\GLO4002UL-2019-devoir1-Dany\target\test-classes;D:\Backup 4 dec\Desktop\Université\Session Automne 2019\GLO-4002\Devoir 1\GLO4002UL-2019-devoir1-Dany\target\classes;C:\Users\ipodt\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.5.2\junit-jupiter-api-5.5.2.jar;C:\Users\ipodt\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\ipodt\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\ipodt\.m2\repository\org\junit\platform\junit-platform-commons\1.5.2\junit-platform-commons-1.5.2.jar;C:\Users\ipodt\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.5.2\junit-jupiter-engine-5.5.2.jar;C:\Users\ipodt\.m2\repository\org\junit\platform\junit-platform-engine\1.5.2\junit-platform-engine-1.5.2.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\ipodt"/>
@@ -32,7 +32,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\ipodt\AppData\Local\Temp\surefire3083913699427283355\surefirebooter3830731027819072082.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\ipodt\AppData\Local\Temp\surefire8178926251023329155\surefirebooter7902591358383201896.jar"/>
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_201\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_201\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_201\jre\classes"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -61,12 +61,13 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="triagePatientSprainGravityOver5Case" classname="Classes.ClinicTest" time="0.037"/>
-  <testcase name="triagePatientGravityOver5firstInLine" classname="Classes.ClinicTest" time="0"/>
-  <testcase name="triagePatientSprainCase" classname="Classes.ClinicTest" time="0"/>
-  <testcase name="triagePatientFluCase" classname="Classes.ClinicTest" time="0"/>
-  <testcase name="triagePatientMigraineCase" classname="Classes.ClinicTest" time="0.001"/>
-  <testcase name="clinicQueueTypes" classname="Classes.ClinicTest" time="0.001"/>
+  <testcase name="triagePatientSprainGravityOver5Case" classname="Classes.ClinicTest" time="0.13"/>
+  <testcase name="triagePatientGravityOver5firstInLine" classname="Classes.ClinicTest" time="0.01"/>
+  <testcase name="triagePatientSprainCase" classname="Classes.ClinicTest" time="0.004"/>
+  <testcase name="triagePatientFluCase" classname="Classes.ClinicTest" time="0.002"/>
+  <testcase name="triagePatientMigraineCase" classname="Classes.ClinicTest" time="0.008"/>
+  <testcase name="clinicQueueTypes" classname="Classes.ClinicTest" time="0.009"/>
   <testcase name="triagePatientBrokenBoneCase" classname="Classes.ClinicTest" time="0"/>
   <testcase name="clinicQueueInstanciation" classname="Classes.ClinicTest" time="0"/>
+  <testcase name="triagePatientGravityQueueCase" classname="Classes.ClinicTest" time="0.004"/>
 </testsuite>
