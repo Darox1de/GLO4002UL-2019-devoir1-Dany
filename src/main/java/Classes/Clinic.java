@@ -20,7 +20,10 @@ public class Clinic {
         if (gravity > 5 || doctorListType == TriageType.GRAVITY) {
             doctorQueue.add(0, name);
         }
-        if (visibleSymptom == visibleSymptom.BROKEN_BONE || visibleSymptom == visibleSymptom.SPRAIN ) {
+        if(radioListType == TriageType.GRAVITY){
+            radioQueue.add(0, name);
+        }
+        if ((visibleSymptom == visibleSymptom.BROKEN_BONE || visibleSymptom == visibleSymptom.SPRAIN) && radioListType != TriageType.GRAVITY) {
             radioQueue.add(name);
             if (visibleSymptom == visibleSymptom.SPRAIN) {
                 doctorQueue.add(0, name);

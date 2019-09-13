@@ -9,7 +9,7 @@ public class ClinicTest {
     public Clinic clinic1 = new Clinic(TriageType.FIFO, TriageType.FIFO);
     public Clinic clinic2 = new Clinic(TriageType.FIFO, TriageType.FIFO);
     public Clinic clinic3 = new Clinic(TriageType.GRAVITY, TriageType.FIFO);
-
+    public Clinic clinic4 = new Clinic(TriageType.GRAVITY, TriageType.GRAVITY);
 
     @Test
     public void clinicQueueInstanciation() {
@@ -55,12 +55,17 @@ public class ClinicTest {
     }
     @Test
     public void triagePatientGravityQueueCase() {
-        clinic2.triagePatient("Maggy", 9, VisibleSymptom.BROKEN_BONE);
-        clinic2.triagePatient("Moe", 9, VisibleSymptom.BROKEN_BONE);
-        Assertions.assertEquals("Moe", clinic2.doctorQueue.getFirst());
-        Assertions.assertEquals("Maggy", clinic2.doctorQueue.get(1));
+        clinic3.triagePatient("Maggy", 9, VisibleSymptom.BROKEN_BONE);
+        clinic3.triagePatient("Moe", 9, VisibleSymptom.BROKEN_BONE);
+        Assertions.assertEquals("Moe", clinic3.doctorQueue.getFirst());
+        Assertions.assertEquals("Maggy", clinic3.doctorQueue.get(1));
     }
-
-
-
+    @Test
+    public void triagePatientGravityRadio(){
+        clinic4.triagePatient("Maggy", 9, VisibleSymptom.BROKEN_BONE);
+        clinic4.triagePatient("Moe", 9, VisibleSymptom.BROKEN_BONE);
+        Assertions.assertEquals("Moe", clinic4.radioQueue.getFirst());
+        Assertions.assertEquals("Maggy", clinic4.radioQueue.get(1));
+    }
+    // 5 lignes de modifiées post step 3
 }
