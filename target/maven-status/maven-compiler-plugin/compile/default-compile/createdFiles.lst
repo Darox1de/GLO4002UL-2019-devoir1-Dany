@@ -1,5 +1,11 @@
-Classes\CommunityCenter.class
-Classes\Main.class
+Classes\CommunityCenterGravity.class
 Classes\Clinic.class
+Classes\CommunityCenterFifo.class
+Classes\RadioQueueGravity.class
 Classes\VisibleSymptom.class
 Classes\TriageType.class
+Classes\CommunityCenter.class
+Classes\DoctorQueueFifo.class
+Classes\DoctorQueueGravity.class
+Classes\Main.class
+Classes\RadioQueueFifo.class

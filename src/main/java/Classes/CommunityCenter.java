@@ -1,23 +1,24 @@
 package Classes;
-
 import java.util.LinkedList;
+import java.lang.String;
 
-public class CommunityCenter {
-    public TriageType serviceType;
+abstract class CommunityCenter {
     public LinkedList<String> nurseQueue = new LinkedList<String>();
-
-    public CommunityCenter(TriageType serviceType) {
-        this.serviceType = serviceType;
-    }
-
+    abstract public void triagePatient(String name, int gravity);
+}
+class CommunityCenterGravity extends CommunityCenter {
     public void triagePatient(String name, int gravity) {
-        if(gravity < 2){
+        if(gravity < 2) {
             return;
         }
-        if(gravity > 5 && serviceType == TriageType.GRAVITY){
-            nurseQueue.add(0, name);
-        } else if(serviceType == TriageType.FIFO){
-            nurseQueue.add(name);
+        nurseQueue.add(0, name);
+    }
+}
+class CommunityCenterFifo extends CommunityCenter {
+    public void triagePatient(String name, int gravity) {
+        if(gravity < 2) {
+            return;
         }
+        nurseQueue.add(name);
     }
 }

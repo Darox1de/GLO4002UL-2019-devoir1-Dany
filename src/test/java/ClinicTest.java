@@ -3,77 +3,44 @@ package Classes;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.engine.*;
-import java.util.*;
+import java.util.LinkedList;
 
 public class ClinicTest {
-    public Clinic clinic1 = new Clinic(TriageType.FIFO, TriageType.FIFO);
-    public Clinic clinic2 = new Clinic(TriageType.FIFO, TriageType.FIFO);
-    public Clinic clinic3 = new Clinic(TriageType.GRAVITY, TriageType.FIFO);
-    public Clinic clinic4 = new Clinic(TriageType.GRAVITY, TriageType.GRAVITY);
-    public Clinic clinic5 = new Clinic(TriageType.GRAVITY, TriageType.GRAVITY);
+
+    public Clinic clinicRadioFifo = new RadioQueueFifo();
+    public Clinic clinicRadioGravity = new RadioQueueGravity();
+    public Clinic clinicDoctorFifo = new DoctorQueueFifo();
+    public Clinic clinicDoctorGravity = new DoctorQueueGravity();
 
     @Test
-    public void clinicQueueInstanciation() {
-        Assertions.assertEquals(0, clinic1.radioQueue.size());
-        Assertions.assertEquals(0, clinic1.doctorQueue.size());
+    public void whenTriagingPatient_thenPatientIsAddedToTheDoctorWaitingList() {
+        clinicDoctorFifo.triagePatient("Patrick", 5, VisibleSymptom.BROKEN_BONE);
+        clinicDoctorGravity.triagePatient("Bob", 5, VisibleSymptom.BROKEN_BONE);
+        Assertions.assertEquals("Patrick", clinicDoctorFifo.doctorQueue.get(0));
+        Assertions.assertEquals("Bob", clinicDoctorGravity.doctorQueue.get(0));
     }
+
     @Test
-    public void clinicQueueTypes() {
-        Assertions.assertEquals(TriageType.FIFO, clinic1.doctorListType);
-        Assertions.assertEquals(TriageType.FIFO, clinic1.radioListType);
+    public void whenTriagingPatientWithTheFlu_thenPatientIsNotAddedToTheRadiologyWaitingList() {
+        clinicRadioFifo.triagePatient("Squidward", 10, VisibleSymptom.FLU);
+        clinicRadioGravity.triagePatient("Sandy", 10, VisibleSymptom.FLU);
+        Assertions.assertEquals(0, clinicRadioFifo.radioQueue.size());
+        Assertions.assertEquals(0, clinicRadioGravity.radioQueue.size());
     }
+
     @Test
-    public void triagePatientGravityOver5firstInLine() {
-        clinic1.triagePatient("Bob", 2, VisibleSymptom.COLD);
-        clinic1.triagePatient("Carl", 6, VisibleSymptom.COLD);
-        Assertions.assertEquals("Carl", clinic1.doctorQueue.get(0));
+    public void whenTriagingPatientWithABrokenBone_thenPatientIsAddedToTheRadiologyWaitingList() {
+        clinicRadioFifo.triagePatient("Patrick", 10, VisibleSymptom.BROKEN_BONE);
+        clinicRadioGravity.triagePatient("Bob", 10, VisibleSymptom.BROKEN_BONE);
+        Assertions.assertEquals("Patrick", clinicRadioFifo.radioQueue.get(0));
+        Assertions.assertEquals("Bob", clinicRadioGravity.radioQueue.get(0));
     }
+
     @Test
-    public void triagePatientBrokenBoneCase() {
-        clinic1.triagePatient("Bobby", 2, VisibleSymptom.BROKEN_BONE);
-        Assertions.assertEquals("Bobby", clinic1.radioQueue.get(0));
-    }
-    @Test
-    public void triagePatientSprainCase() {
-        clinic1.triagePatient("Baba", 2, VisibleSymptom.SPRAIN);
-        Assertions.assertEquals("Baba", clinic1.radioQueue.get(0));
-    }
-    @Test
-    public void triagePatientSprainGravityOver5Case() {
-        clinic2.triagePatient("Homer", 7, VisibleSymptom.SPRAIN);
-        Assertions.assertEquals("Homer", clinic2.radioQueue.get(0));
-    }
-    @Test
-    public void triagePatientFluCase() {
-        clinic2.triagePatient("Lisa", 8, VisibleSymptom.SPRAIN);
-        clinic2.triagePatient("Bart", 2, VisibleSymptom.FLU);
-        Assertions.assertEquals("Bart", clinic2.doctorQueue.get(1));
-    }
-    @Test
-    public void triagePatientMigraineCase() {
-        clinic2.triagePatient("Marge", 2, VisibleSymptom.MIGRAINE);
-        Assertions.assertEquals("Marge", clinic2.doctorQueue.getFirst());
-    }
-    @Test
-    public void triagePatientGravityQueueCase() {
-        clinic3.triagePatient("Maggy", 9, VisibleSymptom.BROKEN_BONE);
-        clinic3.triagePatient("Moe", 9, VisibleSymptom.BROKEN_BONE);
-        Assertions.assertEquals("Moe", clinic3.doctorQueue.getFirst());
-        Assertions.assertEquals("Maggy", clinic3.doctorQueue.get(1));
-    }
-    @Test
-    public void triagePatientGravityRadio(){
-        clinic4.triagePatient("Maggy", 9, VisibleSymptom.BROKEN_BONE);
-        clinic4.triagePatient("Moe", 9, VisibleSymptom.BROKEN_BONE);
-        Assertions.assertEquals("Moe", clinic4.radioQueue.getFirst());
-        Assertions.assertEquals("Maggy", clinic4.radioQueue.get(1));
-    }
-    // 5 lignes de modifiées post step 3
-    @Test
-    public void triagePatientAbusSystem(){
-        clinic5.triagePatient("PATRICK", 1, VisibleSymptom.EBOLA);
-        clinic5.triagePatient("BOB", 1, VisibleSymptom.EBOLA);
-        clinic5.triagePatient("SQUIDWARD", 5, VisibleSymptom.EBOLA);
-        Assertions.assertEquals("SQUIDWARD", clinic5.doctorQueue.getFirst());
+    public void whenTriagingPatientWithASprain_thenPatientIsAddedToTheRadiologyWaitingList() {
+        clinicRadioFifo.triagePatient("Patrick", 10, VisibleSymptom.SPRAIN);
+        clinicRadioGravity.triagePatient("Bob", 10, VisibleSymptom.SPRAIN);
+        Assertions.assertEquals("Patrick", clinicRadioFifo.radioQueue.get(0));
+        Assertions.assertEquals("Bob", clinicRadioGravity.radioQueue.get(0));
     }
 }

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: Classes.ClinicTest
+Test set: Classes.CommunityCenterTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 s - in Classes.ClinicTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in Classes.CommunityCenterTest
